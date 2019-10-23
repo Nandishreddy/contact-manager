@@ -33,16 +33,23 @@ class ContactForm extends React.Component {
             <div>
                 <h2>Add Contact</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name
-                    <input type="text" value={this.state.name} onChange={this.handleChange} name="name" />
-                    </label> <br/>
-                    <label>Email
-                    <input type="text" value={this.state.email} onChange={this.handleChange} name="email" />
-                    </label> <br />
-                    <label>Mobile
-                    <input type="text" value={this.state.mobile} onChange={this.handleChange} name="mobile" />
-                    </label> <br />
-                    <input type="submit" />
+
+                    <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input type="text" value={this.state.name} onChange={this.handleChange} name="name" id="name" className="form-control" />
+                    </div>
+
+                    <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" value={this.state.email} onChange={this.handleChange} name="email" id="email" className="form-control"/>
+                    </div>
+
+                    <div className="form-group">
+                    <label htmlFor="mobile">Mobile</label>
+                    <input type="text" value={this.state.mobile} onChange={this.handleChange} name="mobile" id="mobile" className="form-control"/>
+                    </div>
+
+                    <input type="submit" className="btn btn-primary"/>
                 </form>
             </div>
         )

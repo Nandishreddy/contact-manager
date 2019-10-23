@@ -13,31 +13,45 @@ import ContactShow from './components/contacts/Show'
 function App(props) {
   return (
     <BrowserRouter>
-      <div>
-          <Link to="/">Home</Link>
-          {
-            isEmpty(props.user) ? (
-              <div>
-                <Link to="/users/register">Register</Link>
-                <Link to="/users/login">Login</Link>
-              </div> 
-             ) : ( 
-               <div>
-                  <Link to="/contacts">Contacts</Link>
-                  <Link to="/users/account">Account</Link>
-                  <Link to="/users/logout">Logout</Link>
-               </div>
-             ) 
-          }
+      <div className="container">
+        <ul className="nav justify-content-end">
+          <li className="nav-item">
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+              {
+                isEmpty(props.user) ? (
+                  <React.Fragment>
+                    <li className="nav-item">
+                      <Link to="/users/register" className="nav-link">Register</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/users/login" className="nav-link">Login</Link>
+                    </li>
+                  </React.Fragment>
+                ) : ( 
+                  <React.Fragment>
+                    <li className="nav-item">
+                      <Link to="/contacts" className="nav-link">Contacts</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/users/account" className="nav-link">Account</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/users/logout" className="nav-link">Logout</Link>
+                    </li> 
+                  </React.Fragment>
+                ) 
+              }
+          </ul>
+              <Route path="/" component={Home} exact={true} />
+              <Route path="/users/register" component={Register} />
+              <Route path="/users/login" component={Login} />
+              <Route path="/users/account" component={UserAccount} />
 
-          
-          <Route path="/" component={Home} exact={true} />
-          <Route path="/users/register" component={Register} />
-          <Route path="/users/login" component={Login} />
-          <Route path="/users/account" component={UserAccount} />
+              <Route path="/contacts" component={ContactsList} exact={true} />
+              <Route path="/contacts/:id" component={ContactShow} />
 
-          <Route path="/contacts" component={ContactsList} exact={true} />
-          <Route path="/contacts/:id" component={ContactShow} />
+
       </div>
     </BrowserRouter>
   );

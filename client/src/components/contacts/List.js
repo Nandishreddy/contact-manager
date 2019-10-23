@@ -6,15 +6,19 @@ import ContactForm from './Form'
 
 function ContactList(props){ 
     return (
-        <div>
-            <h2>Listing Contacts - {props.contacts.length}</h2>
-            <ul>
-                { props.contacts.map(contact => {
-                    return <li key={contact._id}><Link to={`/contacts/${contact._id}`}>{contact.name}</Link></li>
-                })}
-            </ul>
-
-            <ContactForm />
+        <div className="row">
+            <div className="col-md-8">
+                <h2>Listing Contacts - {props.contacts.length}</h2>
+                <ul className="list-group">
+                    { props.contacts.map(contact => {
+                        return <li key={contact._id} className="list-group-item">
+                                <Link to={`/contacts/${contact._id}`}>{contact.name}</Link></li>
+                    })}
+                </ul>
+            </div>
+            <div className="col-md-4">
+                <ContactForm />
+            </div>
         </div>
     )
 }

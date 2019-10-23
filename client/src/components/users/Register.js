@@ -28,13 +28,15 @@ class Register extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h2>Register with us</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username 
+                <div className="col-md-6">
+                    <div className="form-group">
+                        <label> Username </label>
                         <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-                    </label> <br/>
+                    </div>
+                   
                     <label>
                         Email
                         <input type="text" value={this.state.email} onChange={this.handleChange} name="email" />
@@ -46,7 +48,9 @@ class Register extends React.Component {
                     </label> <br />
 
                     <input type="submit" />
+                    </div>
                 </form>
+                
             </div>
         )
     }

@@ -3,16 +3,33 @@ import { connect } from 'react-redux'
 
 function ContactShow(props) {
     return (
-        <div>
-        { props.contact ? (
-            <div>
-                <h1>{props.contact.name} {props.contact.email} {props.contact.mobile}</h1>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6">
+                    { props.contact ? (
+                        <table className="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>email</th>
+                                    <th>mobile</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{props.contact.name}</td>
+                                        <td>{props.contact.email}</td>
+                                        <td>{props.contact.mobile}</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    ) : (
+                    <div>
+                        loading...
+                    </div>
+                ) }
+                </div>
             </div>
-        ) : (
-            <div>
-                loading...
-            </div>
-        ) }
         </div>
     )
 }
